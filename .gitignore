@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# PyTorch
+*.pth
+*.pt
+*.ckpt
+
+# Model files (keep tracked based on project structure)
+# Uncomment if you want to ignore large model files:
+# model/*.pkl
+# model/*.ply
+# model/*.npy
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python version management
+.python-version
+
+# Logs
+*.log
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
