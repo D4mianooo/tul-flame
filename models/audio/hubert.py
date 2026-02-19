@@ -5,16 +5,16 @@ import torch
 from transformers import HubertModel, Wav2Vec2Processor
 import soundfile as sf
 
-from .audio_to_flame_mapper import AudioToFlameMapper
-from ..UI.flame_renderer import FLAME_Renderer
-from ..UI.flame_wrapper import FLAME_Wrapper
+from audio_to_flame_mapper import AudioToFlameMapper
+from UI.flame_renderer import FLAME_Renderer
+from models.flame_pytorch.flame_wrapper import FLAME_Wrapper
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 processor = Wav2Vec2Processor.from_pretrained("facebook/hubert-large-ls960-ft")
 model = HubertModel.from_pretrained("facebook/hubert-large-ls960-ft").to(device)
 
-audio, sr = librosa.load("./audio_files/churchill_test.mp3", sr=16000)
-sf.write("./audio_files/test_audio_16khz.wav", audio, 16000)
+audio, sr = librosa.load("data/audio/input/churchill_test.mp3", sr=16000)
+sf.write("data/audio/input/test_audio_16khz.wav", audio, 16000)
 
 input_values = processor(audio, return_tensors="pt", sampling_rate=16000).input_values.to(device)
 
