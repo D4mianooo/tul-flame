@@ -87,3 +87,5 @@ class FLAME_Renderer:
             self.joints_node = self.scene.add(joints_pcl, pose=self.transform_matrix)
 
         self.viewer.render_lock.release()
+
+    #zapisywanie klatek
