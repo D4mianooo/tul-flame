@@ -3,7 +3,7 @@ import torch
 
 from UI.flame_controller import Flame_Controller
 from UI.flame_renderer import FLAME_Renderer
-from models.flame_pytorch.flame_wrapper import FLAME_Wrapper
+from UI.flame_wrapper import FLAME_Wrapper
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("Using device:", device)

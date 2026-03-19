@@ -1,6 +1,6 @@
 import torch
 import numpy as np
-from . import FLAME, get_config
+from models.flame_pytorch import FLAME, get_config
 
 class FLAME_Wrapper:
     def __init__(self, device=None):
