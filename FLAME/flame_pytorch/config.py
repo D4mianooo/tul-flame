@@ -72,7 +72,7 @@ parser.add_argument(
 
 parser.add_argument("--num_worker", type=int, default=4, help="pytorch number worker.")
 
-parser.add_argument("--batch_size", type=int, default=8, help="Training batch size.")
+parser.add_argument("--batch_size", type=int, default=1, help="Training batch size.")
 
 parser.add_argument("--ring_margin", type=float, default=0.5, help="ring margin.")
 

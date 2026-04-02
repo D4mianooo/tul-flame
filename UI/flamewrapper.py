@@ -1,8 +1,8 @@
 import torch
 import numpy as np
-from models.flame_pytorch import FLAME, get_config
+from FLAME.flame_pytorch import FLAME, get_config
 
-class FLAME_Wrapper:
+class FLAMEWrapper:
     def __init__(self, device=None):
         self.config = get_config()
         self.device = device if device else torch.device("cuda" if torch.cuda.is_available() else "cpu")

@@ -5,7 +5,7 @@ import numpy as np
 import trimesh
 
 
-class FLAME_Renderer:
+class FLAMERenderer:
     def __init__(self):
         self.transform_matrix = np.eye(4)
         self.scene = pyrender.Scene()

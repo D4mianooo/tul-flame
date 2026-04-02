@@ -1,6 +1,7 @@
 import torch
 import torch.optim as optim
 from ResNetFLAME import ResNetFLAME
+from UI.flamerenderer import FLAMERenderer
 from UI.flamewrapper import FLAMEWrapper
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -9,12 +10,11 @@ model = ResNetFLAME(out_features=156).to(device)
 optimizer = optim.Adam(model.parameters(), lr=0.0001)
 
 flame_wrapper = FLAMEWrapper()
-
+flame_renderer = FLAMERenderer()
 # Opcjonalnie: Scheduler (zmniejsza lr, gdy nauka staje w miejscu)
 # scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience=3)
 
 epochs = 50
-
 
 def landmark_loss(predicted_params):
     shape = predicted_params[:, :100]
@@ -26,6 +26,8 @@ def landmark_loss(predicted_params):
     flame_wrapper.pose = pose
 
     vertices, landmarks, faces = flame_wrapper.generate_mesh()
+
+    flame_renderer.start_view(vertices, landmarks, faces)
 
     #loss = torch.mean(torch.abs(pred_landmarks - gt_landmarks))
     pass
